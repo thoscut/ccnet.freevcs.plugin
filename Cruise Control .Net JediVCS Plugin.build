@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Cruise Control .Net JediVCS Plugin" default="build">
+  <description>SharpDevelop generated NAnt 0.84 build file.</description>
+  <!--Set debug property if not set-->
+  <ifnot propertyexists="debug">
+    <property name="debug" value="false" />
+  </ifnot>
+  <!--The 'init' target.  Creates folders needed for the build.-->
+  <target name="init" depends="init.debug, init.release" />
+  <!--The 'clean' target.  Removes compiled output.-->
+  <target name="clean" depends="clean.debug, clean.release" />
+  <!--The 'gacreferences' target.-->
+  <target name="gacreferences" depends="gacreferences.debug, gacreferences.release" />
+  <!--The 'build' target.-->
+  <target name="build" depends="build.debug, build.release" />
+  <!--The 'test' target.-->
+  <target name="test" depends="test.debug, test.release" />
+  <!--Set up various properties that will be referred to in the various nant targets.-->
+  <!--The output directory.-->
+  <property name="outputdir.debug" value=".\bin\Debug">
+  </property>
+  <!--The name of the assembly.-->
+  <property name="assembly.debug" value="Cruise Control .Net JediVCS Plugin">
+  </property>
+  <!--The output file's extension.-->
+  <property name="extension.debug" value="dll">
+  </property>
+  <!--The initialisation target.-->
+  <target name="init.debug" if="${debug}">
+    <mkdir dir="${outputdir.debug}" />
+  </target>
+  <!--The 'clean' target.  Here we delete the built output files and extra files which are not directly specified in 
+		      the .prjx file (e.g. ".pdb", ".xml").-->
+  <target name="clean.debug" if="${debug}">
+    <delete>
+      <fileset>
+        <includes name="${outputdir.debug}\${assembly.debug}.${extension.debug}" />
+        <includes name="${outputdir.debug}\${assembly.debug}.pdb" />
+        <includes name="${outputdir.debug}\${assembly.debug}.xml" />
+        <includes name="${outputdir.debug}\*.config" />
+      </fileset>
+    </delete>
+  </target>
+  <!--The 'build' target.-->
+  <target name="build.debug" depends="init.debug, gacreferences.debug" if="${debug}">
+    <!--Compiles the code -->
+    <csc target="library" output="${outputdir.debug}\${assembly.debug}.${extension.debug}" warninglevel="4" nowarn="" debug="True" optimize="False" unsafe="False" checked="True" noconfig="False" nostdlib="False" define="" win32icon="" warnaserror="False">
+      <sources>
+        <includes name=".\MyClass.cs" />
+        <includes name=".\AssemblyInfo.cs" />
+        <includes name=".\Settings.cs" />
+        <includes name=".\JediVCS.cs" />
+        <includes name=".\JediVCS.Designer.cs" />
+        <includes name=".\JediVCSException.cs" />
+        <includes name=".\JediVCSFileInfo.cs" />
+        <includes name=".\JediVCSFileInfoList.cs" />
+        <includes name=".\JediVCSHistoryParser.cs" />
+        <includes name=".\JediVCSProcessArgumentBuilder.cs" />
+        <includes name=".\NullUrlFactory.cs" />
+      </sources>
+    </csc>
+    <!--Copy app.config file to output folder and rename it appropriately -->
+  </target>
+  <!--The test target.  Only supports Nunit 2 -->
+  <target name="test.debug" depends="build.debug" if="${debug}">
+    <nunit2>
+      <formatter type="Plain" />
+      <test assemblyname="${outputdir.debug}\${assembly.debug}.${extension.debug}" appconfig="${outputdir.debug}\${assembly.debug}.${extension.debug}.config" />
+    </nunit2>
+  </target>
+  <!--Generates a property for each Gac reference.  The property name is set to the name of the assembly-->
+  <target name="gacreferences.debug" if="${debug}">
+  </target>
+  <!--Set up various properties that will be referred to in the various nant targets.-->
+  <!--The output directory.-->
+  <property name="outputdir.release" value=".\bin\Release">
+  </property>
+  <!--The name of the assembly.-->
+  <property name="assembly.release" value="Cruise Control .Net JediVCS Plugin">
+  </property>
+  <!--The output file's extension.-->
+  <property name="extension.release" value="dll">
+  </property>
+  <!--The initialisation target.-->
+  <target name="init.release" unless="${debug}">
+    <mkdir dir="${outputdir.release}" />
+  </target>
+  <!--The 'clean' target.  Here we delete the built output files and extra files which are not directly specified in 
+		      the .prjx file (e.g. ".pdb", ".xml").-->
+  <target name="clean.release" unless="${debug}">
+    <delete>
+      <fileset>
+        <includes name="${outputdir.release}\${assembly.release}.${extension.release}" />
+        <includes name="${outputdir.release}\${assembly.release}.pdb" />
+        <includes name="${outputdir.release}\${assembly.release}.xml" />
+        <includes name="${outputdir.release}\*.config" />
+      </fileset>
+    </delete>
+  </target>
+  <!--The 'build' target.-->
+  <target name="build.release" depends="init.release, gacreferences.release" unless="${debug}">
+    <!--Compiles the code -->
+    <csc target="library" output="${outputdir.release}\${assembly.release}.${extension.release}" warninglevel="4" nowarn="" debug="False" optimize="True" unsafe="False" checked="False" noconfig="False" nostdlib="False" define="" win32icon="" warnaserror="False">
+      <sources>
+        <includes name=".\MyClass.cs" />
+        <includes name=".\AssemblyInfo.cs" />
+        <includes name=".\Settings.cs" />
+        <includes name=".\JediVCS.cs" />
+        <includes name=".\JediVCS.Designer.cs" />
+        <includes name=".\JediVCSException.cs" />
+        <includes name=".\JediVCSFileInfo.cs" />
+        <includes name=".\JediVCSFileInfoList.cs" />
+        <includes name=".\JediVCSHistoryParser.cs" />
+        <includes name=".\JediVCSProcessArgumentBuilder.cs" />
+        <includes name=".\NullUrlFactory.cs" />
+      </sources>
+    </csc>
+    <!--Copy app.config file to output folder and rename it appropriately -->
+  </target>
+  <!--The test target.  Only supports Nunit 2 -->
+  <target name="test.release" depends="build.release" unless="${debug}">
+    <nunit2>
+      <formatter type="Plain" />
+      <test assemblyname="${outputdir.release}\${assembly.release}.${extension.release}" appconfig="${outputdir.release}\${assembly.release}.${extension.release}.config" />
+    </nunit2>
+  </target>
+  <!--Generates a property for each Gac reference.  The property name is set to the name of the assembly-->
+  <target name="gacreferences.release" unless="${debug}">
+  </target>
+</project>

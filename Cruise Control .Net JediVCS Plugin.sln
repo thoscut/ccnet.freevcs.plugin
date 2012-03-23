@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cruise Control .Net JediVCS Plugin", "Cruise Control .Net JediVCS Plugin.csproj", "{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Build|Any CPU = Build|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Build|Any CPU.ActiveCfg = Build|Any CPU
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Build|Any CPU.Build.0 = Build|Any CPU
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E9E617-5AC2-4CC2-98A6-52ED79A7E264}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
